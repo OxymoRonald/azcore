@@ -1,7 +1,7 @@
 ## Ignore Files
 
 # User-specified files
-inventory.yml
+*.temp
 
 # User specified directory
 artifacts/
