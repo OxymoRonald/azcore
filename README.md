@@ -1,0 +1,2 @@
+# azcore
+AzerothCore installation scripts
