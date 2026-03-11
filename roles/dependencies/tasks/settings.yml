@@ -1,0 +1,45 @@
+---
+# file: roles/dependencies/tasks/settings.yml
+
+# Configure UFW firewall
+  # sudo apt install ufw
+  # sudo ufw default deny incoming
+  # sudo ufw default allow outgoing
+  # sudo ufw allow 55022
+  # sudo ufw allow 3724
+  # sudo ufw allow 8085
+  # sudo ufw enable
+# To see a list of UFW configure rules use the command: sudo ufw status verbose
+
+- name: Disable firewall (for setup)
+  community.general.ufw:
+    state: disabled
+
+- name: Deny incoming traffic
+  community.general.ufw:
+    direction: incoming
+    default: deny
+
+- name: Allow outgoing traffic
+  community.general.ufw:
+    direction: outgoing
+    default: allow
+
+- name: Allow SSH incoming
+  community.general.ufw:
+    rule: allow
+    port: 22
+
+- name: Allow authserver incoming
+  community.general.ufw:
+    rule: allow
+    port: 3724
+  
+- name: Allow worldserver incoming
+  community.general.ufw:
+    rule: allow
+    port: 8085
+  
+- name: (Re)enable firewall
+  community.general.ufw:
+    state: enabled

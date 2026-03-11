@@ -1,0 +1,109 @@
+---
+# file: roles/dependencies/tasks/main.yml
+
+# https://www.azerothcore.org/wiki/debian12-install-guide
+
+- name: Update apt cache
+  ansible.builtin.apt:
+    update_cache: yes
+
+- name: Install ufw (firewall)
+  ansible.builtin.apt:
+    name: ufw
+    state: present
+
+- name: Install git
+  ansible.builtin.apt:
+    name: git 
+    state: present
+
+- name: Install cmake
+  ansible.builtin.apt:
+    name: cmake 
+    state: present
+
+- name: Install make
+  ansible.builtin.apt:
+    name: make 
+    state: present
+
+- name: Install gcc
+  ansible.builtin.apt:
+    name: gcc 
+    state: present
+
+- name: Install g++
+  ansible.builtin.apt:
+    name: g++ 
+    state: present
+
+- name: Install clang
+  ansible.builtin.apt:
+    name: clang 
+    state: present
+
+- name: Install libssl
+  ansible.builtin.apt:
+    name: libssl-dev 
+    state: present
+
+- name: Install libbz2
+  ansible.builtin.apt:
+    name: libbz2-dev 
+    state: present
+
+- name: Install libreadline
+  ansible.builtin.apt:
+    name: libreadline-dev 
+    state: present
+
+- name: Install libncurses
+  ansible.builtin.apt:
+    name: libncurses-dev 
+    state: present
+
+- name: Install libboost
+  ansible.builtin.apt:
+    name: libboost-all-dev 
+    state: present
+
+- name: Install lsb
+  ansible.builtin.apt:
+    name: lsb-release 
+    state: present
+
+- name: Install gnupg
+  ansible.builtin.apt:
+    name: gnupg 
+    state: present
+
+- name: Install wget
+  ansible.builtin.apt:
+    name: wget 
+    state: present
+
+- name: Install p7zip
+  ansible.builtin.apt:
+    name: p7zip-full 
+    state: present
+
+- name: Install nodejs
+  ansible.builtin.apt:
+    name: nodejs 
+    state: present
+
+- name: Install npm
+  ansible.builtin.apt:
+    name: npm 
+    state: present
+
+- name: Install fail2ban
+  ansible.builtin.apt:
+    name: fail2ban
+    state: present
+
+- name: Install pm2 (nodejs)
+  community.general.npm:
+    name: pm2
+    global: true
+    state: present

@@ -1,0 +1,25 @@
+---
+# file: server-install.yml
+#
+# ansible-playbook azcore/server-install.yml
+
+- name: Install AzerothCore
+  hosts: localhost
+  become: true
+  become_method: sudo
+
+  vars_prompt:
+    - name: ansible_become_password
+      prompt: Please enter the sudo password
+      private: true
+  
+  tasks:
+    - name: Install dependencies
+      ansible.builtin.include_role:
+        name: dependencies
+        tasks_from: main
+
+    - name: Configure dependencies
+      ansible.builtin.include_role:
+        name: dependencies
+        tasks_from: settings
