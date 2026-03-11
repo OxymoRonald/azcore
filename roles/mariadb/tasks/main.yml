@@ -1,0 +1,14 @@
+---
+# file: roles/mariadb/tasks/main.yml
+
+- name: Install MariaDB
+  ansible.builtin.apt:
+    name: mariadb-server
+    state: present
+    update_cache: yes
+
+- name: Enable a and start MariaDB
+  ansible.builtin.systemd_service:
+    name: mariadb
+    state: started
+    enabled: true

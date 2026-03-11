@@ -1,0 +1,12 @@
+ungrouped:
+  hosts:
+  
+local:
+  hosts:
+    localhost
+  vars:
+    ansible_connection: local
+    ansible_sudo_pass: <password>
+    ansible_become: true
+    ansible_become_method: sudo
+    server_timezone: Europe/Amsterdam

@@ -5,13 +5,13 @@
 
 - name: Install AzerothCore
   hosts: localhost
-  become: true
-  become_method: sudo
+  # become: true
+  # become_method: sudo
 
-  vars_prompt:
-    - name: ansible_become_password
-      prompt: Please enter the sudo password
-      private: true
+  # vars_prompt:
+  #   - name: ansible_become_password
+  #     prompt: Please enter the sudo password
+  #     private: true
   
   tasks:
     - name: Install dependencies
@@ -23,3 +23,8 @@
       ansible.builtin.include_role:
         name: dependencies
         tasks_from: settings
+
+    # - name: Install MariaDB
+    #   ansible.builtin.include_role:
+    #     name: mariadb
+    #     tasks_from: main
